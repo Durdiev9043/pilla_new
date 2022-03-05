@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	Options -SymLinksIfOwnerMatch
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+    RewriteCond %{REQUEST_URI} ^/.*
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_URI} !^/public/upload/extra/
+    RewriteRule ^(.*)$ public/$1 [L]
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ public/index.php
+
+</IfModule>
+
