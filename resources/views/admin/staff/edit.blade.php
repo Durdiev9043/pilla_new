@@ -86,6 +86,27 @@
                             <input type="text" name="kontur" value="{{$staff->kontur}}" class="form-control" id="header_ru" placeholder="контур">
                         </div>
 
+                        <div class="form-group">
+                            <label for="header_ru">toladi</label>
+                            <input type="text" name="toladi" value="{{$staff->toladi}}" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">resurs</label>
+                            <input type="text" name="resurs" class="form-control" value="{{$staff->resurs}}" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">avans</label>
+                            <input type="text" name="avans" class="form-control" value="{{$staff->avans}}" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">subsedya</label>
+                            <input type="text" name="subsedya" class="form-control" value="{{$staff->subsedya}}" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">yil_boshiga</label>
+                            <input type="text" name="yil_boshiga" class="form-control" value="{{$staff->yil_boshiga}}" id="header_ru" placeholder="га">
+                        </div>
+
 
 
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>

@@ -15,7 +15,6 @@ class FarmController extends Controller
         //
     }
 
-
     public function create()
     {
         $villages=Village::all();
@@ -35,12 +34,10 @@ class FarmController extends Controller
         return view('admin.farm.index',['farmes'=>$farmes,'id'=>$id]);
     }
 
-
     public function edit(Farm $farm)
     {
         return view('admin.farm.edit',['farm'=>$farm]);
     }
-
 
     public function update(Request $request, Farm $farm)
     {

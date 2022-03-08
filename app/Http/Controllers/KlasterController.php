@@ -20,7 +20,6 @@ class KlasterController extends Controller
         return view('admin.klaster.index',['klasteres'=>$klasteres,'farmes'=>$farmes,'staffs'=>$staffs,'regions'=>$regions]);
     }
 
-
     public function create()
     {
         //
@@ -31,7 +30,6 @@ class KlasterController extends Controller
         $klaster=Klaster::create($request->all());
         return redirect()->route('admin.klaster.index');
     }
-
 
     public function show($id)
     {

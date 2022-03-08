@@ -99,6 +99,29 @@
 
 
 
+                        <div class="form-group">
+                            <label for="header_ru">toladi</label>
+                            <input type="text" name="toladi" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">resurs</label>
+                            <input type="text" name="resurs" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">avans</label>
+                            <input type="text" name="avans" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">subsedya</label>
+                            <input type="text" name="subsedya" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">yil_boshiga</label>
+                            <input type="text" name="yil_boshiga" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+
+
+
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>

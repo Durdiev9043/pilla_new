@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="card-body table-responsive">
+                <div class="card-body table-responsive" >
                     <table class="table-bordered w-auto table-striped" id="mytable">
                         <thead>
                         <tr>
@@ -114,8 +114,10 @@
                                     <td>
                                         <?php
                                         $farqi=($staff->topshirgani-$staff->topshirish_rejasi);
+
+                                        if ($staff->topshirish_rejasi>0){
                                         $foiz=($staff->topshirgani)*100/$staff->topshirish_rejasi;
-                                        ?>
+                                        }?>
                                         {{$farqi}}
                                     </td>
 
@@ -124,32 +126,33 @@
                                     </td>
 
                                     <td>
+                                        {{$staff->topshirish_rejasini*24}}
+                                    </td>
+                                    @if($staff->yil_boshiga>=0)
+                                    <td>
+                                        {{$staff->yil_boshiga}}
+                                    </td><td></td>
+                                    @else
+                                    <td></td>
+                                    <td>
+                                        {{$staff->yil_boshiga}}
+                                    </td>
+                                    @endif
+                                    <td>
+                                        {{$staff->avans}}
+                                    </td>
+                                    <td>
+                                        {{$staff->resurs}}
+                                    </td>
+                                    <td>
                                         {{$staff->toladi}}
                                     </td>
-
                                     <td>
-                                        debet
-                                    </td>
-
-                                    <td>
-                                        kridit
-                                    </td>
-                                    <td>
-                                        avans
-                                    </td>
-                                    <td>
-                                        resurs
-                                    </td>
-                                    <td>
-                                        joyida
-                                    </td>
-                                    <td>
-                                        subsedya
+                                        {{$staff->subsedya}}
                                     </td>
                                     <td>
                                         debet
                                     </td>
-
                                     <td>
                                         kridit
                                     </td>
@@ -217,6 +220,7 @@
                         "extend": 'excel', "text":'<i class="fas fa-download px-2"> </i>  Малумотларни excel форматда юклаб олиш',"className": 'btn btn-primary btn-xm'
                     }
                 ],
+
 
                 "language": {
 

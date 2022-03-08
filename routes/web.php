@@ -5,8 +5,8 @@ use App\Http\Controllers\KlasterController;
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\VillageController;
+use App\Http\Controllers\HududController;
 use Illuminate\Support\Facades\Route;
-
 use \App\Http\Controllers\UsersController;
 use \App\Http\Controllers\RegionController;
 
@@ -37,6 +37,7 @@ Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
     Route::resource('village','VillageController');
     Route::resource('staff','StaffController');
     Route::resource('farm','FarmController');
+    Route::resource('hudud','HududController');
     Route::post('bus','HomeController@village')->name('bus');
 
 

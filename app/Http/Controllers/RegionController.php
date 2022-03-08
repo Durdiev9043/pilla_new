@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Farm;
+use App\Models\Hudud;
 use App\Models\klaster;
 use App\Models\Staff;
 use App\Models\Village;
@@ -34,9 +35,9 @@ class RegionController extends Controller
 
     public function show($id)
     {
-        $villages=Village::all()->where('region_id','=',$id);
+        $villages=Hudud::all()->where('region_id','=',$id);
         $staffes=Staff::all();
-        return view('admin.village.index',['villages'=>$villages,'staffes'=>$staffes]);
+        return view('admin.hudud.index',['villages'=>$villages,'staffes'=>$staffes]);
     }
 
     public function edit(Region $region)
@@ -51,12 +52,6 @@ class RegionController extends Controller
         return redirect()->route('admin.region.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
