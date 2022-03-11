@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hudud;
+use App\Models\Region;
 use App\Models\Staff;
 use App\Models\Village;
 use Illuminate\Http\Request;
@@ -11,20 +12,21 @@ class HududController extends Controller
 {
     public function index()
     {
-        $hududs=Hudud::all();
+        $villages=Hudud::all();
         $staffes=Staff::all();
-        return view('admin.hudud.index',['hududs'=>$hududs,'staffes'=>$staffes]);
+        return view('admin.hudud.index',['villages'=>$villages,'staffes'=>$staffes]);
     }
 
     public function create()
     {
-        return view('admin.hudud.create');
+        $regions=Region::all();
+        return view('admin.hudud.create',['regions'=>$regions]);
     }
 
     public function store(Request $request)
     {
         Hudud::create($request->all());
-        return redirect()->route('admin.hudud.index');
+        return redirect()->route('admin.region.show',$request->region_id);
     }
 
     public function show($id)
@@ -46,6 +48,7 @@ class HududController extends Controller
 
     public function destroy(Hudud $hudud)
     {
+
         $hudud->delete();
         return redirect()->back();
     }

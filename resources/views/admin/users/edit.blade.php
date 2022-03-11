@@ -28,6 +28,7 @@
                             <label for="header_ru">tuman:</label>
 
                             <select class="custom-select" name="role" id="">
+                                <option value="0"></option>
                                 @foreach($regions as $region)
                                     <option class="form-control" value="{{$region->id}}">{{$region->name}}</option>
                                 @endforeach
@@ -49,6 +50,10 @@
                         <label for="pwd_confirm">Повторите пароль</label>
                         <input type="password" name="password_confirmation" class="form-control" id="pwd_confirm">
                     </div>
+                        <div class="form-group">
+                            <label for="pwd_confirm">Повторите пароль</label>
+                            <input type="text" name="ruxsat" class="form-control" >
+                        </div>
                     <button type="submit" class="btn btn-primary">сақлаш</button>
                     <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>

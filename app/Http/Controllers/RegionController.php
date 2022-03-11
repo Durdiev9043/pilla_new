@@ -33,11 +33,15 @@ class RegionController extends Controller
         //
     }
 
-    public function show($id)
-    {
-        $villages=Hudud::all()->where('region_id','=',$id);
+    public function show($id){
+//    {$regions=Region::all();
+//        $staffes=Staff::all();
+//
+//        return view('admin.region.index',['regions'=>$regions,'staffes'=>$staffes]);
+        $hududs=Hudud::all()->where('region_id','=',$id);
         $staffes=Staff::all();
-        return view('admin.hudud.index',['villages'=>$villages,'staffes'=>$staffes]);
+        $farmes=Farm::all();
+        return view('admin.hudud.index',['hududs'=>$hududs,'farmes'=>$farmes,'staffes'=>$staffes]);
     }
 
     public function edit(Region $region)

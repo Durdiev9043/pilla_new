@@ -17,9 +17,9 @@ class StaffController extends Controller
 
     public function create()
     {
-        $villages=Village::all();
+
         $regions=Region::all();
-        return view('admin.staff.create',['villages'=>$villages,'regions'=>$regions]);
+        return view('admin.staff.create',['regions'=>$regions]);
     }
 
     public function store(Request $request)
@@ -30,7 +30,8 @@ class StaffController extends Controller
 
     public function show($id)
     {
-        //
+        $staff=Staff::all()->where('id','=',$id)->first();
+        return view('admin.staff.show',['staff'=>$staff]);
     }
 
     public function edit(Staff $staff)

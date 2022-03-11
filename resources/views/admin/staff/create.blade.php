@@ -20,14 +20,14 @@
                         </div>
                     @endif
 
-
+@if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                     <form action="{{route('admin.staff.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
                         @if(\Illuminate\Support\Facades\Auth::user()->role==0)
                         <div class="form-group">
                             <label for="region_id">туман</label>
-                            <select class="custom-select" id="region_id" onchange="village(region_id)" name="region_id">
+                            <select class="custom-select" id="region_id" onchange="hudud(region_id)" name="region_id">
 
                                 @foreach($regions as $region)
                                     <option value="{{$region->id}}">{{$region->name}}</option>
@@ -36,11 +36,16 @@
                         </div>
                         <div class="form-group">
                             <label for="number">махалла</label>
-                            <select class="custom-select" id="village_id" name="village_id">
-
-
+                            <select class="custom-select" id="hudud_id"  onchange="village(hudud_id)" name="hudud_id">
+                                <option value=""></option>
                             </select>
                         </div>
+                            <div class="form-group">
+                                <label for="number">махалла</label>
+                                <select class="custom-select" id="village_id"   name="village_id">
+                                    <option value=""></option>
+                                </select>
+                            </div>
                         @else
                             <div class="form-group">
                             <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
@@ -52,8 +57,6 @@
                             @endforeach
                             </select>
                             </div>
-
-
                         @endif
                         <div class="form-group">
                             <label for="header_ru">имя</label>
@@ -125,16 +128,19 @@
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
+                        @else
+                    <h1>siz bu funksiyadan faydalanish imkoningiz yoq</h1>
+                        @endif
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function village(region){
+        function hudud(region){
             region_id=region.value;
             $.ajax(
-                "{{route('admin.bus')}}",
+                "{{route('admin.rr')}}",
                 {
                     method: 'post',
                     headers: {
@@ -144,17 +150,44 @@
                         region_id:region_id
                     },
                     success: function (data){
+                        $('#hudud_id').empty()
+                        for (let d in data){
+                            let option = '<option value=' + data[d].id + '>' + data[d].name + '</option>';
+                            $('#hudud_id').append(option)
+                        }
+
+                    }
+
+                }
+
+
+            )
+        }
+        function village(hudud){
+            hudud_id=hudud.value;
+            $.ajax(
+                "{{route('admin.bus')}}",
+                {
+                    method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{csrf_token()}}'
+                    },
+                    data: {
+                        hudud_id:hudud_id
+                    },
+                    success: function (data){
                         $('#village_id').empty()
                         for (let d in data){
                             let option = '<option value=' + data[d].id + '>' + data[d].name + '</option>';
                             $('#village_id').append(option)
-                        }
+                        }  console.log(data)
                     }
                 }
 
 
             )
         }
+
 
     </script>
 

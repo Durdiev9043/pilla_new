@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <label for="number">махалла</label>
                             <select class="custom-select" id="village_id" name="village_id">
-
+                                <option value=""></option>
 {{--                                @foreach($villages as $village)--}}
 {{--                                    <option value="{{$village->id}}">{{$village->name}}</option>--}}
 {{--                                @endforeach--}}

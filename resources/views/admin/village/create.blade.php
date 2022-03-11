@@ -27,13 +27,23 @@
                         @if(\Illuminate\Support\Facades\Auth::user()->role==0)
                             <div class="form-group">
                                 <label for="number">махалла</label>
-                                <select class="custom-select" id="price_id" name="region_id">
+                                <select class="custom-select" id="price_id" onchange="village(region_id)" name="region_id">
 
                                     @foreach($regions as $region)
                                         <option value="{{$region->id}}">{{$region->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="number">махалла</label>
+                                <select class="custom-select" id="hudud_id" name="hudud_id">
+                                    <option value=""></option>
+{{--                                    @foreach($hududs as $hudud)--}}
+{{--                                        <option value="{{$hudud->id}}">{{$hudud->name}}</option>--}}
+{{--                                    @endforeach--}}
+                                </select>
+                            </div>
+
                         @else
                         <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
                         @endif
@@ -55,6 +65,32 @@
         </div>
     </div>
 
+    <script>
+        function village(region){
+            region_id=region.value;
+            $.ajax(
+                "{{route('admin.rr')}}",
+                {
+                    method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{csrf_token()}}'
+                    },
+                    data: {
+                        region_id:region_id
+                    },
+                    success: function (data){
+                        $('#hudud_id').empty()
+                        for (let d in data){
+                            let option = '<option value=' + data[d].id + '>' + data[d].name + '</option>';
+                            $('#hudud_id').append(option)
+                        }
+                    }
+                }
 
+
+            )
+        }
+
+    </script>
 
 @endsection

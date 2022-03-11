@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-9"><h1 class="card-title">Ҳудудлар  рўйхати</h1></div>
                     <div class="col-md-1">
-                        <a class="btn btn-primary" href="{{route('admin.village.create')}}">
+                        <a class="btn btn-primary" href="{{route('admin.hudud.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
@@ -18,57 +18,102 @@
                 </div>
                 <hr>
                 <div class="card-body overflow-auto">
-                    <table width="100%" class="table-bordered table-striped" id="mytable">
+                    <table width="100%" id="mytable" class="table-striped table-bordered overflow-auto">
                         <thead>
                         <tr rowspan="2">
-                            <th rowspan="2" class="text-center" >Туман номи</th>
-                            <th  colspan="4" class="text-center">Пилла топшириши</th>
-                            <th rowspan="2" class="text-center">Амаллар</th>
+                            <th rowspan="2" >Туманлар номи</th>
+                            <th rowspan="2" class="text-center" >ҳудуддаги<br> касаначилар<br>сони</th>
+
+                            <th  colspan="4" class="text-center">Касаначилар</th>
+                            <th class="border-bottom text-center" colspan="3"  scope="col">Фермерлар</th>
+                            <th class="border-bottom text-center" colspan="3"  scope="col">жами</th>
+
+
+                            <th rowspan="2" class="text-center" >Амаллар</th>
 
                         </tr>
                         <tr>
-                            <th class="text-center" >режа</th>
-                            <th class="text-center" >ҳақиқатда топширди</th>
-                            <th class="text-center" >фоиз%</th>
-                            <th class="text-center" >фарқи (+/-)</th>
+                            <th  >режа</th>
+                            <th  >амалда</th>
+                            <th >фоиз<br>%</th>
+                            <th  >фарқи<br> (+/-)</th>
+
+                            <th  scope="col">режа</th>
+                            <th scope="col">амалда</th>
+                            <th scope="col">фоиз<br>%</th>
+
+                            <th  scope="col">режа</th>
+                            <th scope="col">амалда</th>
+                            <th scope="col">фоиз<br>%</th>
+
 
                         </tr>
                         </thead>
                         <tbody>
-
-                        @foreach($villages as $village)
+                        @foreach($hududs as $region)
                             <tr>
-
-                                <td>
-                                    <a href="{{route('admin.hudud.show',$village->id)}}">{{$village->name}}</a>
+                                <td scope="row">
+                                    <a href="{{route('admin.hudud.show',$region->id)}}">{{$region->name}}</a>
                                 </td>
-
+                                <td>
                                     <?php
                                     $soni=0;
                                     $olgan=0;
                                     $topshirish_rejasi=0;
                                     $topshirgani=0;
-                                   $x=0;
-                                   $farqi=0;
-                                        foreach ($staffes as $staff) {
-                                            if ($staff->hudud_id==$village->id){
-                                                $soni=$soni+1;
-                                                $olgan=$olgan+($staff->olgan_gr);
-                                                $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
-                                                $topshirgani=$topshirgani+($staff->topshirgani);
-                                                $x=($topshirgani *100)/$topshirish_rejasi;
-                                                $farqi=$topshirgani-$topshirish_rejasi;
-                                            };
+                                    $x=0;
+                                    $farqi=0;
+                                    $jarima=0;
+                                    $toladi=0;
+                                    $qoldi=0;
+
+                                    $F_olgan=0;
+                                    $F_topshirish_rejasi=0;
+                                    $F_topshirgani=0;
+                                    $y=0;
+                                    foreach ($staffes as $staff) {
+                                        if ($staff->hudud_id==$region->id){
+                                            $soni=$soni+1;
+                                            $olgan=$olgan+($staff->olgan_gr);
+                                            $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
+                                            $topshirgani=$topshirgani+($staff->topshirgani);
+                                            $x=($topshirgani *100)/$topshirish_rejasi;
+                                            $farqi=$topshirgani-$topshirish_rejasi;
+                                            $jarima=$farqi*22;
+                                            $toladi=$toladi+($staff->toladi);
+                                            $qoldi=$toladi-$jarima;
                                         };
+
+                                    };
+                                    foreach ($farmes as $farm){
+                                        if ($farm->hudud_id==$region->id){
+                                            $F_olgan=$F_olgan+($farm->olgan_gr);
+                                            $F_topshirish_rejasi=$F_topshirish_rejasi+($farm->topshirish_rejasi);
+                                            $F_topshirgani=$F_topshirgani+($farm->topshirgani);
+                                            $y=($F_topshirgani *100)/$F_topshirish_rejasi;
+                                            $farqi=$topshirgani-$topshirish_rejasi;
+                                            $jarima=$farqi*22;
+                                            $toladi=$toladi+($farm->toladi);
+                                            $qoldi=$toladi-$jarima;
+                                        };
+                                    };
+                                    $reja=$topshirish_rejasi+$F_topshirish_rejasi;
+                                    $amalda=$topshirgani+$F_topshirgani;
+                                    if ($reja>0){
+                                        $z=$amalda*100/$reja;
+                                    }else{
+                                        $z=0;
+                                    }
                                     ?>
+                                    {{ $soni }}
+                                </td>
 
-
-                               <td>
-                                   {{ $topshirish_rejasi }}
-                               </td>
-                               <td>
+                                <td>
+                                    {{ $topshirish_rejasi }}
+                                </td>
+                                <td>
                                     {{ $topshirgani }}
-                               </td>
+                                </td>
                                 <td>
                                     {{ round($x,1) }}
                                 </td>
@@ -76,35 +121,53 @@
                                     {{$farqi}}
                                 </td>
 
-                                    <td>
-                                        <form action="{{ route('admin.village.destroy',$village ->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <div class="btn-group" role="group">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.village.edit',$village->id) }}">
-                                    <span class="btn-label">
-                                        <i class="fa fa-pen"></i>
-                                    </span>
+
+                                <td id="f_reja">{{$F_topshirish_rejasi}}</td>
+                                <td id="f_top">{{$F_topshirgani}}</td>
+                                <td id="f_y">{{round($y,1)}}</td>
+
+                                <td id="reja">{{$reja}}</td>
+                                <td id="top">{{$amalda}}</td>
+                                <td id="foiz">{{round($z,1)}}</td>
+
+
+
+                                <td>
+                                    <form action="{{ route('admin.region.destroy',$region ->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="btn-group" role="group">
+                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.region.edit',$region->id) }}">
+                                            <span class="btn-label">
+                                                <i class="fa fa-pen"></i>
+                                            </span>
                                             </a>
                                             <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">
-                                        <i class="fa fa-trash"></i>
-                                    </span></button>
-                                            </div>
-                                        </form>
-                                    </td>
+                                            <i class="fa fa-trash"></i></span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
 
                             </tr>
                         @endforeach
-
                         </tbody>
                         <tfoot>
-
-                        <th>жами:</th>
-                        <th></th>
-                        <th></th>
-                        <th>-</th>
-                        <th></th>
-                        <th>-</th>
+                        <tr>
+                            <th>жами:</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                        </tr>
                         </tfoot>
                     </table>
                 </div>

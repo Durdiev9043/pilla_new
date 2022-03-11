@@ -40,6 +40,7 @@ Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
     Route::resource('farm_s','Farm_KasanachiController');
     Route::resource('hudud','HududController');
     Route::post('bus','HomeController@village')->name('bus');
+    Route::post('rr','HomeController@hudud')->name('rr');
 
 
 });

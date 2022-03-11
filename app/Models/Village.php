@@ -17,7 +17,6 @@ class Village extends Model
     public function hudud(){
         return $this->belongsTo(Hudud::class);
     }
-
     public function staff(){
         return $this->belongsTo(Staff::class);
     }

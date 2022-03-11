@@ -25,6 +25,7 @@
                           enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                         @if(\Illuminate\Support\Facades\Auth::user()->role==0)
                         <div class="form-group">
                             <label for="number">туман</label>
@@ -73,10 +74,12 @@
                             <label for="header_ru">Шарт</label>
                             <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="Шарт">
                         </div>
+                        @endif
                         <div class="form-group">
                             <label for="header_ru">ҳақиқатда топширди</label>
                             <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
                         </div>
+                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                         <div class="form-group">
                             <label for="header_ru">га</label>
                             <input type="text" name="maydon" value="{{$staff->maydon}}" class="form-control" id="header_ru" placeholder="га">
@@ -106,7 +109,7 @@
                             <label for="header_ru">yil_boshiga</label>
                             <input type="text" name="yil_boshiga" class="form-control" value="{{$staff->yil_boshiga}}" id="header_ru" placeholder="га">
                         </div>
-
+                        @endif
 
 
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>

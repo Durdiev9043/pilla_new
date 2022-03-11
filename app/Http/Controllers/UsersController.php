@@ -56,6 +56,8 @@ class UsersController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required|confirmed|min:8',
+            'role'=>'required',
+            'ruxsat'=>'required',
 
         ]);
 
@@ -64,6 +66,7 @@ class UsersController extends Controller
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
             'role'=>$request->role,
+            'ruxsat'=>$request->ruxsat,
         ]);
         return redirect()->route('admin.users.index')
             ->with('success','Успешно Обновлено');

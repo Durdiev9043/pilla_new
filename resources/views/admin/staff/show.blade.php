@@ -4,25 +4,25 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <div class="row">
-                    <div class="col-7"><h1 class="card-title">Касаначилар рўйхати</h1></div>
-                    <div class="col-md-1 mr-5">
-                        <a class="btn btn-primary" href="{{route('admin.farm.show',$id)}}">
-                            <span class="btn-label">
+{{--                <div class="row">--}}
+{{--                    <div class="col-7"><h1 class="card-title">Касаначилар рўйхати</h1></div>--}}
+{{--                    <div class="col-md-1 mr-5">--}}
+{{--                        <a class="btn btn-primary" href="{{route('admin.farm.show',$id)}}">--}}
+{{--                            <span class="btn-label">--}}
 
-                            </span>
-                            Фермерлар рўйхати
-                        </a>
-                    </div>
-                    <div class="col-md-1 ml-4">
-                        <a class="btn btn-primary" href="{{route('admin.staff.create')}}">
-                            <span class="btn-label">
-                                <i class="fa fa-plus"></i>
-                            </span>
-                            Касаначи кошиш
-                        </a>
-                    </div>
-                </div>
+{{--                            </span>--}}
+{{--                            Фермерлар рўйхати--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-1 ml-4">--}}
+{{--                        <a class="btn btn-primary" href="{{route('admin.staff.create')}}">--}}
+{{--                            <span class="btn-label">--}}
+{{--                                <i class="fa fa-plus"></i>--}}
+{{--                            </span>--}}
+{{--                            Касаначи кошиш--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <hr>
                 <div class="card-body table-responsive" >
                     <table class="table-bordered w-auto table-striped" id="mytable">
@@ -90,94 +90,97 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($staffes as $staff)
-                                <tr>
 
-                                    <td ><a href="{{route('admin.staff.show',$staff->id)}}">{{$staff->fullname}}</a></td>
+                            <tr>
 
-                                    <td>{{$staff->passport}}</td>
+                                <td >{{$staff->fullname}}</td>
 
-                                    <td>{{$staff->inn}}</td>
+                                <td>{{$staff->passport}}</td>
 
-                                    <td>{{$staff->jshir}}</td>
+                                <td>{{$staff->inn}}</td>
 
-                                    <td>{{$staff->kontur}}</td>
+                                <td>{{$staff->jshir}}</td>
 
-                                    <td>{{$staff->maydon}}</td>
+                                <td>{{$staff->kontur}}</td>
 
-                                    <td>{{$staff->algan_qutisi}}</td>
+                                <td>{{$staff->maydon}}</td>
 
-                                    <td>{{$staff->topshirish_rejasi}}</td>
+                                <td>{{$staff->algan_qutisi}}</td>
 
-                                    <td>{{$staff->topshirgani}}</td>
+                                <td>{{$staff->topshirish_rejasi}}</td>
 
-                                    <td>
-                                        <?php
-                                        $farqi=($staff->topshirgani-$staff->topshirish_rejasi);
+                                <td>{{$staff->topshirgani}}</td>
 
-                                        if ($staff->topshirish_rejasi>0){
+                                <td>
+                                    <?php
+                                    $farqi=($staff->topshirgani-$staff->topshirish_rejasi);
+
+                                    if ($staff->topshirish_rejasi>0){
                                         $foiz=($staff->topshirgani)*100/$staff->topshirish_rejasi;
-                                        }?>
-                                        {{$farqi}}
-                                    </td>
+                                    }else{
+                                        $foiz=NULL;
+                                    }
+                                    ?>
+                                    {{$farqi}}
+                                </td>
 
-                                    <td>
-                                        {{round($foiz,1)}}
-                                    </td>
+                                <td>
+                                    {{round($foiz,1)}}
+                                </td>
 
-                                    <td>
-                                        {{$staff->topshirish_rejasini*24}}
-                                    </td>
-                                    @if($staff->yil_boshiga>=0)
+                                <td>
+                                    {{$staff->topshirish_rejasini*24}}
+                                </td>
+                                @if($staff->yil_boshiga>=0)
                                     <td>
                                         {{$staff->yil_boshiga}}
                                     </td><td></td>
-                                    @else
+                                @else
                                     <td></td>
                                     <td>
                                         {{$staff->yil_boshiga}}
                                     </td>
-                                    @endif
-                                    <td>
-                                        {{$staff->avans}}
-                                    </td>
-                                    <td>
-                                        {{$staff->resurs}}
-                                    </td>
-                                    <td>
-                                        {{$staff->toladi}}
-                                    </td>
-                                    <td>
-                                        {{$staff->subsedya}}
-                                    </td>
-                                    <td>
-                                        debet
-                                    </td>
-                                    <td>
-                                        kridit
-                                    </td>
-                                    <td>
-                                        izox
-                                    </td>
-                                    <td>
+                                @endif
+                                <td>
+                                    {{$staff->avans}}
+                                </td>
+                                <td>
+                                    {{$staff->resurs}}
+                                </td>
+                                <td>
+                                    {{$staff->toladi}}
+                                </td>
+                                <td>
+                                    {{$staff->subsedya}}
+                                </td>
+                                <td>
+                                    debet
+                                </td>
+                                <td>
+                                    kridit
+                                </td>
+                                <td>
+                                    izox
+                                </td>
+                                <td>
 
-                                        <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a class="btn btn-warning btn-sm m-1" href="{{ route('admin.staff.edit',$staff->id) }}">
+                                    <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-warning btn-sm m-1" href="{{ route('admin.staff.edit',$staff->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
 
-                                            </a>
+                                        </a>
 
-                                            <button type="submit" class="btn btn-danger m-1 btn-sm"><span class="btn-label">
+                                        <button type="submit" class="btn btn-danger m-1 btn-sm"><span class="btn-label">
                                         <i class="fa fa-trash"></i>
                                     </span></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                    </form>
+                                </td>
+                            </tr>
+
                         </tbody>
                         <tfoot>
                         <th>жами:</th>

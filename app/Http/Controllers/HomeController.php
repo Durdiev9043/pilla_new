@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hudud;
 use App\Models\Village;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,11 @@ class HomeController extends Controller
 
 
     public function village(Request $request){
-        $villages=Village::all()->where('region_id',$request->region_id);
+        $villages=Village::all()->where('hudud_id',$request->hudud_id);
         return $villages;
+    }
+    public function hudud(Request $request){
+        $hududs=Hudud::all()->where('region_id',$request->region_id);
+        return $hududs;
     }
 }

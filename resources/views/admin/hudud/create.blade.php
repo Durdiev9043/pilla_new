@@ -21,7 +21,7 @@
                     @endif
 
 
-                    <form action="{{route('admin.village.store')}}" method="POST" accept-charset="UTF-8"
+                    <form action="{{route('admin.hudud.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
                         @if(\Illuminate\Support\Facades\Auth::user()->role==0)
@@ -34,12 +34,17 @@
                                     @endforeach
                                 </select>
                             </div>
+
                         @else
                         <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
                         @endif
                         <div class="form-group">
                             <label for="header_ru">номи</label>
                             <input type="text" name="name" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">номи</label>
+                            <input type="text" name="sektor" class="form-control" id="header_ru" placeholder="номи">
                         </div>
 
 

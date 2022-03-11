@@ -102,9 +102,9 @@
 
                                     <td >{{$farm->village->name}}</td>
 
-                                    <td>2020...</td>
+                                    <td>{{$farm->h2020}}</td>
 
-                                    <td>23202...</td>
+                                    <td>{{$farm->h23202}}</td>
 
                                     <td>{{$farm->maydon}}</td>
 
@@ -138,10 +138,10 @@
                                         avans
                                     </td>
                                     <td>
-                                        resurs
+                                        {{$farm->resurs}}
                                     </td>
                                     <td>
-                                        hisob kitob
+                                        {{$farm->toladi}}
                                     </td>
                                     <td>
                                         subsedya

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Hudud;
 use App\Models\Region;
 use App\Models\Staff;
 use App\Models\Village;
@@ -21,8 +22,9 @@ class VillageController extends Controller
 
     public function create()
     {
+        $hududs=Hudud::all();
         $regions=Region::all();
-        return view('admin.village.create',['regions'=>$regions]);
+        return view('admin.village.create',['hududs'=>$hududs,'regions'=>$regions]);
     }
 
     public function store(Request $request)
@@ -30,7 +32,7 @@ class VillageController extends Controller
         $village=new Village();
         $village->create($request->all());
 
-        return redirect()->route('admin.region.show',$request->region_id);
+        return redirect()->route('admin.hudud.show',$request->hudud_id);
     }
 
     public function show($id)
