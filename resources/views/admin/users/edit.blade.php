@@ -51,8 +51,12 @@
                         <input type="password" name="password_confirmation" class="form-control" id="pwd_confirm">
                     </div>
                         <div class="form-group">
-                            <label for="pwd_confirm">Повторите пароль</label>
-                            <input type="text" name="ruxsat" class="form-control" >
+                            <label for="header_ru">tuman:</label>
+
+                            <select class="custom-select" name="ruxsat" id="">
+                                <option value="0">ruxsat yoq</option>
+                                <option class="form-control" value="1">ruxsat</option>
+                            </select>
                         </div>
                     <button type="submit" class="btn btn-primary">сақлаш</button>
                     <input type="reset" class="btn btn-danger" value="Очистить">

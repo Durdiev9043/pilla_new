@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-@if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
+                    @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                     <form action="{{route('admin.staff.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf

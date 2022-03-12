@@ -150,14 +150,21 @@
                                     <td>
                                         {{$staff->subsedya}}
                                     </td>
+                                    <?php
+                                    $xx=$staff->toladi+$staff->avans+$staff->subsedya+$staff->resurs+$staff->yil_boshiga;
+                                    ?>
+                                    @if($xx>0)
                                     <td>
-                                        debet
+                                        {{$xx}}
                                     </td>
                                     <td>
-                                        kridit
                                     </td>
-                                    <td>
-                                        izox
+                                    @else
+                                        <td></td>
+                                        <td>{{$xx}}</td>
+                                    @endif
+                                        <td>
+                                        {{$staff->izoh}}
                                     </td>
                                     <td>
 

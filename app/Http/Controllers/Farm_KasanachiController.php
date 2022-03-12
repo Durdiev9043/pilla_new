@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Farm_Staff;
+use App\Models\FarmStaff;
 use Illuminate\Http\Request;
 
 class Farm_KasanachiController extends Controller
@@ -20,13 +20,14 @@ class Farm_KasanachiController extends Controller
 
     public function store(Request $request)
     {
-        Farm_Staff::create($request->all());
+        FarmStaff::create($request->all());
         return route('admin.farm_s.index');
     }
 
     public function show($id)
     {
-        //
+        $staffes=FarmStaff::all()->where('farm_id',$id);
+        return view('admin.farm_staff.index',['staffes'=>$staffes]);
     }
 
     public function edit($id)

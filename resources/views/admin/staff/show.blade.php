@@ -56,6 +56,8 @@
 
                             <th class="text-center"  colspan="2" scope="col">Якуний ҳисоб-китоб<br>(минг сўм)</th>
 
+                            <th class="text-center"  colspan="11" scope="col">Экин турлари</th>
+
                             <th class="text-center"  rowspan="2" scope="col">Изоҳ</th>
 
 
@@ -83,6 +85,31 @@
                             <th class="text-center" scope="col">дебет</th>
 
                             <th class="text-center" scope="col">кредит</th>
+
+                            <th class="text-center" scope="col">боғдой</th>
+
+                            <th class="text-center" scope="col">беда</th>
+
+                            <th class="text-center" scope="col">Сабзавот</th>
+
+                            <th class="text-center" scope="col">Полиз</th>
+
+                            <th class="text-center" scope="col">Қунгабоқар</th>
+
+                            <th class="text-center" scope="col">Картошка</th>
+
+                            <th class="text-center" scope="col">Пиёз</th>
+
+                            <th class="text-center" scope="col">Саримсоқпиёз</th>
+
+                            <th class="text-center" scope="col">Озуқа</th>
+
+                            <th class="text-center" scope="col">Шоли</th>
+
+                            <th class="text-center" scope="col">Бошқалар</th>
+
+
+
 
 
 
@@ -153,12 +180,31 @@
                                 <td>
                                     {{$staff->subsedya}}
                                 </td>
-                                <td>
-                                    debet
-                                </td>
-                                <td>
-                                    kridit
-                                </td>
+                                <?php
+                                $xx=$staff->toladi+$staff->avans+$staff->subsedya+$staff->resurs+$staff->yil_boshiga;
+                                ?>
+                                @if($xx>0)
+                                    <td>
+                                        {{$xx}}
+                                    </td>
+                                    <td>
+                                    </td>
+                                @else
+                                    <td></td>
+                                    <td>{{$xx}}</td>
+                                @endif
+                                <td>{{$staff->bugdoy}}</td>
+                                <td>{{$staff->beda}}</td>
+                                <td>{{$staff->sabzovod}}</td>
+                                <td>{{$staff->poliz}}</td>
+                                <td>{{$staff->kungaboqar}}</td>
+                                <td>{{$staff->kartoshka}}</td>
+                                <td>{{$staff->piyoz}}</td>
+                                <td>{{$staff->sarimsoq_piyoz}}</td>
+                                <td>{{$staff->ozuqa}}</td>
+                                <td>{{$staff->sholi}}</td>
+                                <td>{{$staff->boshqa}}</td>
+
                                 <td>
                                     izox
                                 </td>
@@ -184,6 +230,17 @@
                         </tbody>
                         <tfoot>
                         <th>жами:</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th>-</th>
                         <th>-</th>
                         <th>-</th>
                         <th>-</th>

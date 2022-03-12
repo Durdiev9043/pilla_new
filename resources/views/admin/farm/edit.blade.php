@@ -49,7 +49,50 @@
                             <label for="header_ru">имя</label>
                             <input type="text" name="name" value="{{$farm->name}}" class="form-control" id="header_ru" placeholder="имя">
                         </div>
-
+                        <div class="form-group">
+                            <label for="header_ru">phone</label>
+                            <input type="text" name="phone" value="{{$farm->phone}}" class="form-control" id="header_ru" placeholder="имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">inn</label>
+                            <input type="text" name="inn" value="{{$farm->inn}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">2020...</label>
+                            <input type="text" name="h2020" class="form-control" value="{{$farm->h2020}}" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">23202...</label>
+                            <input type="text" name="h23202" class="form-control" value="{{$farm->h23202}}" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">boshiga</label>
+                            <input type="text" name="yil_boshiga" class="form-control" value="{{$farm->yil_boshiga}}" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">avans</label>
+                            <input type="text" name="avans" value="{{$farm->avans}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">resurs</label>
+                            <input type="text" name="resurs" value="{{$farm->reurs}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">hisob kitob</label>
+                            <input type="text" name="toladi" value="{{$farm->toladi}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">subsedya</label>
+                            <input type="text" name="subsedya" value="{{$farm->subsedya}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">ekin maydoni</label>
+                            <input type="text" name="maydon" value="{{$farm->maydon}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">yakka tutzor</label>
+                            <input type="text" name="tut"  value="{{$farm->tut}}" class="form-control" id="header_ru" placeholder="номи">
+                        </div>
                         <div class="form-group">
                             <label for="header_ru">кути</label>
                             <input type="text" name="algan_qutisi" value="{{$farm->algan_qutisi}}" class="form-control" id="header_ru">

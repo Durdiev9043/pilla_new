@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Farm_Staff extends Model
+class FarmStaff extends Model
 {
     use Notifiable;
     protected $fillable=['fullname','farm_id','kontur','jshir','ekin_turi','maydon','toladi','passport','inn','algan_qutisi','olgan_gr','topshirish_rejasi','topshirgani','avans','resurs','subsedya'];

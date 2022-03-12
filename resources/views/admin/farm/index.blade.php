@@ -94,7 +94,7 @@
                             @foreach($farmes as $farm)
                                 <tr>
 
-                                    <td >{{$farm->name}}</td>
+                                    <td ><a href="{{route('admin.farm_s.show',$farm->id)}}">{{$farm->name}}</a></td>
 
                                     <td >{{$farm->phone}}</td>
 
@@ -108,7 +108,7 @@
 
                                     <td>{{$farm->maydon}}</td>
 
-                                    <td>{{$farm->yakka_tut}}</td>
+                                    <td>{{$farm->tut}}</td>
 
                                     <td>{{$farm->algan_qutisi}}</td>
 
@@ -126,16 +126,20 @@
                                         {{round($foiz,1)}}
                                     </td>
                                     <td>
-                                        {{$farm->toladi}}
+                                        {{$farm->topshirish_rejasi*24}}
+                                    </td>
+                                    @if($farm->yil_boshiga>0)
+                                    <td>
+                                        {{$farm->yil_boshiga}}
                                     </td>
                                     <td>
-                                        debet
                                     </td>
+                                    @else
+                                        <td></td>
+                                    <td>{{$farm->yil_boshiga}}</td>
+                                    @endif
                                     <td>
-                                        kredit
-                                    </td>
-                                    <td>
-                                        avans
+                                        {{$farm->avans}}
                                     </td>
                                     <td>
                                         {{$farm->resurs}}
@@ -144,17 +148,26 @@
                                         {{$farm->toladi}}
                                     </td>
                                     <td>
-                                        subsedya
+                                        {{$farm->subsedya}}
+                                    </td>
+                                    <?php
+                                    $xx=($farm->subsedyani+$farm->resurs+$farm->toladi+$farm->avans+$farm->yil_boshiga);
+                                    ?>
+                                    @if($xx>0)
+                                    <td>
+                                        {{$xx}}
                                     </td>
                                     <td>
-                                        debet
+                                    </td>
+                                    @else
+                                    <td>
                                     </td>
                                     <td>
-                                        kredit
+                                        {{$xx}}
                                     </td>
-                                    <td>
+                                    @endif
+                                    <td>{{$farm->izoh}}</td>
 
-                                    </td>
                                     <td>
                                         <form action="{{ route('admin.farm.destroy',$farm ->id) }}" method="POST">
                                             @csrf
@@ -246,90 +259,34 @@
                     };
 
                     // Total over all pages
-                    total = api
-                        .column( 4 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Total over this page
-                    pageTotal = api
-                        .column( 4, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 4 ).footer() ).html(
-                        pageTotal
-                    );
 
 
 
 
-                    total = api
-                        .column( 1 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
 
-                    // Total over this page
-                    pageTotal = api
-                        .column( 1, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
+                    // total = api
+                    //     .column( 1 )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Total over this page
+                    // pageTotal = api
+                    //     .column( 1, { page: 'current'} )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Update footer
+                    // $( api.column( 1, ).footer() ).html(
+                    //     pageTotal
+                    //
+                    // );
 
-                    // Update footer
-                    $( api.column( 1, ).footer() ).html(
-                        pageTotal
 
-                    );
-                    total = api
-                        .column( 2 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
 
-                    // Total over this page
-                    pageTotal = api
-                        .column( 2, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 2, ).footer() ).html(
-                        pageTotal
-
-                    );
-
-                    total = api
-                        .column( 3 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Total over this page
-                    pageTotal = api
-                        .column( 3, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 3, ).footer() ).html(
-                        pageTotal
-
-                    );
                 }
             } );
         } );

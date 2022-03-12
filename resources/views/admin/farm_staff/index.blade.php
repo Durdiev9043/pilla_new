@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-7"><h1 class="card-title">Касаначилар рўйхати</h1></div>
                     <div class="col-md-1 mr-5">
-                        <a class="btn btn-primary" href="{{route('admin.farm.show',$id)}}">
+                        <a class="btn btn-primary" href="">
                             <span class="btn-label">
 
                             </span>
