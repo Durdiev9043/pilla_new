@@ -19,7 +19,7 @@
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Касаначи кошиш
+                            Касаначи қўшиш
                         </a>
                     </div>
                 </div>
@@ -255,90 +255,90 @@
                     };
 
                     // Total over all pages
-                    total = api
-                        .column( 4 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Total over this page
-                    pageTotal = api
-                        .column( 4, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 4 ).footer() ).html(
-                        pageTotal
-                    );
-
-
-
-
-                    total = api
-                        .column( 5 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Total over this page
-                    pageTotal = api
-                        .column( 5, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 5, ).footer() ).html(
-                        pageTotal
-
-                    );
-                    total = api
-                        .column( 6 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Total over this page
-                    pageTotal = api
-                        .column( 6, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 6, ).footer() ).html(
-                        pageTotal
-
-                    );
-
-                    total = api
-                        .column( 7 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Total over this page
-                    pageTotal = api
-                        .column( 7, { page: 'current'} )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
-                    // Update footer
-                    $( api.column( 7, ).footer() ).html(
-                        pageTotal
-
-                    );
+                    // total = api
+                    //     .column( 4 )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Total over this page
+                    // pageTotal = api
+                    //     .column( 4, { page: 'current'} )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Update footer
+                    // $( api.column( 4 ).footer() ).html(
+                    //     pageTotal
+                    // );
+                    //
+                    //
+                    //
+                    //
+                    // total = api
+                    //     .column( 5 )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Total over this page
+                    // pageTotal = api
+                    //     .column( 5, { page: 'current'} )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Update footer
+                    // $( api.column( 5, ).footer() ).html(
+                    //     pageTotal
+                    //
+                    // );
+                    // total = api
+                    //     .column( 6 )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Total over this page
+                    // pageTotal = api
+                    //     .column( 6, { page: 'current'} )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Update footer
+                    // $( api.column( 6, ).footer() ).html(
+                    //     pageTotal
+                    //
+                    // );
+                    //
+                    // total = api
+                    //     .column( 7 )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Total over this page
+                    // pageTotal = api
+                    //     .column( 7, { page: 'current'} )
+                    //     .data()
+                    //     .reduce( function (a, b) {
+                    //         return intVal(a) + intVal(b);
+                    //     }, 0 );
+                    //
+                    // // Update footer
+                    // $( api.column( 7, ).footer() ).html(
+                    //     pageTotal
+                    //
+                    // );
                 }
             } );
         } );

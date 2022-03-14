@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group">
                             <label for="header_ru">resurs</label>
-                            <input type="text" name="resurs" value="{{$farm->reurs}}" class="form-control" id="header_ru" placeholder="номи">
+                            <input type="text" name="resurs" value="{{$farm->resurs}}" class="form-control" id="header_ru" placeholder="номи">
                         </div>
                         <div class="form-group">
                             <label for="header_ru">hisob kitob</label>
