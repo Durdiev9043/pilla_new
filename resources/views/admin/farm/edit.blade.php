@@ -4,7 +4,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
+                    @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                     <div class="col-10"><h1 class="card-title">Касанчилар</h1></div>
+                    @endif
                 </div>
                 <hr>
                 <div class="card-body">
@@ -26,6 +28,7 @@
                         @csrf
                         @method('PUT')
                         @if(\Illuminate\Support\Facades\Auth::user()->role==0)
+
                         <div class="form-group">
                             <label for="number">туман</label>
                             <select class="custom-select" id="price_id" name="region_id">
@@ -54,6 +57,7 @@
                             <input type="hidden" name="hudud_id" value="{{$farm->hudud->id}}">
                             <input type="hidden" name="region_id" value="{{$farm->region->id}}">
                         @endif
+                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                         <div class="form-group">
                             <label for="header_ru">имя</label>
                             <input type="text" name="name" value="{{$farm->name}}" class="form-control" id="header_ru" placeholder="имя">
@@ -103,6 +107,9 @@
 
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
+                        @else
+                            <h1>Cизда ўзгартириш учин рухсат йўқ</h1>
+                        @endif
                     </form>
                 </div>
             </div>

@@ -4,7 +4,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
+                    @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                     <div class="col-10"><h1 class="card-title">фермер қошиш</h1></div>
+                    @endif
                 </div>
                 <hr>
                 <div class="card-body">
@@ -19,7 +21,7 @@
                             </ul>
                         </div>
                     @endif
-
+                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
 
                     <form action="{{route('admin.farm.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
@@ -113,6 +115,7 @@
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
+                        @endif
                 </div>
             </div>
         </div>

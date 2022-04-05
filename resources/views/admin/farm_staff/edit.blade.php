@@ -45,6 +45,7 @@
                             <input type="hidden" name="village_id" value="{{$staff->village->id}}">
                             <input type="hidden" name="region_id" value="{{$staff->region->id}}">
                         @endif
+                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                         <div class="form-group">
                             <label for="header_ru">имя</label>
                             <input type="text" name="fullname" value="{{$staff->fullname}}" class="form-control" id="header_ru" placeholder="имя">
@@ -73,14 +74,17 @@
                             <label for="header_ru">Шарт</label>
                             <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="Шарт">
                         </div>
+                        @endif
                         <div class="form-group">
                             <label for="header_ru">ҳақиқатда топширди</label>
                             <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
                         </div>
+                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
                         <div class="form-group">
                             <label for="header_ru">якка тутзор қатори</label>
                             <input type="text" name="yakka_tut" value="{{$staff->yakka_tut}}" class="form-control" id="header_ru" placeholder="га">
                         </div>
+                        @endif
 
 
 
