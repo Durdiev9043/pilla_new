@@ -41,8 +41,17 @@
 
                             </select>
                         </div>
+                            <div class="form-group">
+                                <label for="number">Худуд</label>
+                                <select class="custom-select" id="price_id" name="village_id">
+
+                                    <option value="{{$farm->hudud->id}}">{{$farm->hudud->name}}</option>
+
+                                </select>
+                            </div>
                         @else
                             <input type="hidden" name="village_id" value="{{$farm->village->id}}">
+                            <input type="hidden" name="hudud_id" value="{{$farm->hudud->id}}">
                             <input type="hidden" name="region_id" value="{{$farm->region->id}}">
                         @endif
                         <div class="form-group">
@@ -89,28 +98,6 @@
                             <label for="header_ru">ekin maydoni</label>
                             <input type="text" name="maydon" value="{{$farm->maydon}}" class="form-control" id="header_ru" placeholder="номи">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">yakka tutzor</label>
-                            <input type="text" name="tut"  value="{{$farm->tut}}" class="form-control" id="header_ru" placeholder="номи">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">кути</label>
-                            <input type="text" name="algan_qutisi" value="{{$farm->algan_qutisi}}" class="form-control" id="header_ru">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">гр</label>
-                            <input type="text" name="olgan_gr" value="{{$farm->olgan_gr}}" class="form-control" id="header_ru">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="header_ru">Шарт</label>
-                            <input type="text" name="topshirish_rejasi" value="{{$farm->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="Шарт">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">ҳақиқатда топширди</label>
-                            <input type="text" name="topshirgani" value="{{$farm->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
-                        </div>
-
 
 
 

@@ -34,6 +34,12 @@
 
                             </select>
                         </div>
+                                <div class="form-group">
+                                    <label for="number">Худуд</label>
+                                    <select class="custom-select" id="price_id" name="hudud_id">
+                                        <option value="{{$staff->hudud->id}}">{{$staff->hudud->name}}</option>
+                                    </select>
+                                </div>
                         <div class="form-group">
                             <label for="number">махалла</label>
                             <select class="custom-select" id="price_id" name="village_id">
@@ -44,6 +50,7 @@
                         </div>
                         @else
                             <input type="hidden" name="village_id" value="{{$staff->village->id}}">
+                            <input type="hidden" name="hudud_id" value="{{$staff->hudud->id}}">
                             <input type="hidden" name="region_id" value="{{$staff->region->id}}">
                         @endif
                         <div class="form-group">

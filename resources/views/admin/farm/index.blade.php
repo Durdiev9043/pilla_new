@@ -70,7 +70,6 @@
 
                             <th  class="text-center" scope="col">23202....</th>
 
-
                             <th class="text-center" scope="col">режа</th>
 
                             <th class="text-center" scope="col">ҳақиқатда топширди</th>
@@ -92,6 +91,7 @@
                         </thead>
                         <tbody>
                             @foreach($farmes as $farm)
+
                                 <tr>
 
                                     <td ><a href="{{route('admin.farm_s.show',$farm->id)}}">{{$farm->name}}</a></td>
@@ -108,25 +108,67 @@
 
                                     <td>{{$farm->maydon}}</td>
 
-                                    <td>{{$farm->tut}}</td>
 
-                                    <td>{{$farm->algan_qutisi}}</td>
 
-                                    <td>{{$farm->topshirish_rejasi}}</td>
-
-                                    <td>{{$farm->topshirgani}}</td>
                                     <td>
                                         <?php
-                                        $farqi=$farm->topshirgani-$farm->topshirish_rejasi;
-                                        $foiz=$farm->topshirgani*100/$farm->topshirish_rejasi
+
+                                        $soni=0;
+                                        $olgan=0;
+                                        $topshirish_rejasi=0;
+                                        $topshirgani=0;
+                                        $x=0;
+                                        $farqi=0;
+                                        $jarima=0;
+                                        $toladi=0;
+                                        $qoldi=0;
+
+                                        $F_olgan=0;
+                                        $F_topshirish_rejasi=0;
+                                        $F_topshirgani=0;
+                                        $y=0;
+                                        $tut=0;
+                                        foreach ($staffes as $staff) {
+                                            if ($staff->farm_id==$farm->id){
+                                                $soni=$soni+1;
+                                                $olgan=$olgan+($staff->olgan_gr);
+                                                $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
+                                                $topshirgani=$topshirgani+($staff->topshirgani);
+                                                if($topshirish_rejasi>0){
+                                                $x=($topshirgani *100)/$topshirish_rejasi;}
+                                                else{$x=0;}
+                                                $farqi=$topshirgani-$topshirish_rejasi;
+                                                $jarima=$farqi*22;
+                                                $toladi=$toladi+($staff->toladi);
+                                                $qoldi=$toladi-$jarima;
+                                                $tut=$tut+$staff->yakka_tut;
+                                            };
+
+                                        };
+                                        $reja=$topshirish_rejasi+$F_topshirish_rejasi;
+                                        $amalda=$topshirgani+$F_topshirgani;
+                                        if ($reja>0){
+                                            $z=$amalda*100/$reja;
+                                        }else{
+                                            $z=0;
+                                        }
                                         ?>
+                                        {{$tut}}
+                                    </td>
+
+                                    <td>{{$olgan}}</td>
+
+                                    <td>{{$topshirish_rejasi}}</td>
+
+                                    <td>{{$amalda}}</td>
+                                    <td>
                                         {{$farqi}}
                                     </td>
                                     <td>
-                                        {{round($foiz,1)}}
+                                        {{round($x,1)}}
                                     </td>
                                     <td>
-                                        {{$farm->topshirish_rejasi*24}}
+                                        {{$topshirish_rejasi*24}}
                                     </td>
                                     @if($farm->yil_boshiga>0)
                                     <td>

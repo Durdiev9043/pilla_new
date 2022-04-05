@@ -35,7 +35,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="number">махалла</label>
+                            <label for="number">Худуд</label>
                             <select class="custom-select" id="hudud_id"  onchange="village(hudud_id)" name="hudud_id">
                                 <option value=""></option>
                             </select>
@@ -49,7 +49,8 @@
                         @else
                             <div class="form-group">
                             <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
-                            <select name="village_id" class="custom-select" id="village_id">
+                                <label for="number">Худуд</label>
+                            <select name="hudud_id"  class="custom-select" onchange="village(hudud_id)" id="hudud_id">
                             @foreach($villages as $village)
                                 @if($village->region_id==\Illuminate\Support\Facades\Auth::user()->role)
                                     <option value="{{$village->id}}" >{{$village->name}}</option>
@@ -57,6 +58,13 @@
                             @endforeach
                             </select>
                             </div>
+                            <div class="form-group">
+                                <label for="number">махалла</label>
+                                <select class="custom-select" id="village_id"   name="village_id">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+
                         @endif
                         <div class="form-group">
                             <label for="header_ru">имя</label>
@@ -93,34 +101,34 @@
                         </div>
                         <div class="form-group">
                             <label for="header_ru">га</label>
-                            <input type="text" name="maydon" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="maydon" class="form-control" id="header_ru">
                         </div>
                         <div class="form-group">
                             <label for="header_ru">контур</label>
-                            <input type="text" name="kontur" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="kontur" class="form-control" id="header_ru" >
                         </div>
 
 
 
                         <div class="form-group">
                             <label for="header_ru">toladi</label>
-                            <input type="text" name="toladi" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="toladi" class="form-control" id="header_ru" >
                         </div>
                         <div class="form-group">
                             <label for="header_ru">resurs</label>
-                            <input type="text" name="resurs" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="resurs" class="form-control" id="header_ru" >
                         </div>
                         <div class="form-group">
                             <label for="header_ru">avans</label>
-                            <input type="text" name="avans" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="avans" class="form-control" id="header_ru">
                         </div>
                         <div class="form-group">
                             <label for="header_ru">subsedya</label>
-                            <input type="text" name="subsedya" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="subsedya" class="form-control" id="header_ru" >
                         </div>
                         <div class="form-group">
                             <label for="header_ru">yil_boshiga</label>
-                            <input type="text" name="yil_boshiga" class="form-control" id="header_ru" placeholder="га">
+                            <input type="text" name="yil_boshiga" class="form-control" id="header_ru" >
                         </div>
 
 

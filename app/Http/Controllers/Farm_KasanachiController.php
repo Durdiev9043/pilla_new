@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Farm;
 use App\Models\FarmStaff;
+use App\Models\Region;
+use App\Models\Village;
 use Illuminate\Http\Request;
 
 class Farm_KasanachiController extends Controller
@@ -15,34 +18,39 @@ class Farm_KasanachiController extends Controller
 
     public function create()
     {
-        return view('admin.farm_staff.create');
+        $regions=Region::all();
+        return view('admin.farm_staff.create',['regions'=>$regions]);
     }
 
     public function store(Request $request)
     {
         FarmStaff::create($request->all());
-        return route('admin.farm_s.index');
+        return redirect()->route('admin.farm_s.show',$request->farm_id);
     }
 
     public function show($id)
     {
         $staffes=FarmStaff::all()->where('farm_id',$id);
-        return view('admin.farm_staff.index',['staffes'=>$staffes]);
+        $name=Farm::all()->where('id',$id)->first();
+        return view('admin.farm_staff.index',['staffes'=>$staffes,'id'=>$id,'name'=>$name]);
     }
 
-    public function edit($id)
+    public function edit( $farmStaff)
     {
-        return view('admin.farm_staff.edit');
+        $staff=FarmStaff::all()->where('id',$farmStaff)->first();
+        return view('admin.farm_staff.edit',['staff'=>$staff]);
     }
 
-    public function update(Request $request, Farm_Staff $farm_staff)
+    public function update(Request $request,$farmStaff)
     {
-        //
+        $farm=FarmStaff::all()->where('id',$farmStaff)->first();
+        $farm->update($request->all());
+        return redirect()->route('admin.farm_s.show',$farm->farm_id);
     }
 
-    public function destroy(Farm_Staff $farm_staff)
+    public function destroy($farmStaff)
     {
-        $farm_staff->delete();
+        FarmStaff::all()->where('id',$farmStaff)->first()->delete();
         return redirect()->back();
     }
 }

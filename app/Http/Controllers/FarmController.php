@@ -6,6 +6,8 @@ use App\Models\Farm;
 use App\Models\Region;
 use App\Models\Village;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class FarmController extends Controller
 {
@@ -31,7 +33,10 @@ class FarmController extends Controller
     public function show($id)
     {
         $farmes=Farm::all()->where('village_id',$id);
-        return view('admin.farm.index',['farmes'=>$farmes,'id'=>$id]);
+       $staffes=DB::table('farm_staff')->select('farm_staff.yakka_tut','farm_staff.algan_qutisi','farm_staff.olgan_gr','farm_staff.topshirish_rejasi','farm_staff.topshirgani','farm_staff.farm_id','farm_staff.toladi')
+           ->join('farms','farms.id','farm_staff.farm_id')
+           ->where('farm_staff.village_id', $id)->get();
+        return view('admin.farm.index',['farmes'=>$farmes,'staffes'=>$staffes,'id'=>$id]);
     }
 
     public function edit(Farm $farm)

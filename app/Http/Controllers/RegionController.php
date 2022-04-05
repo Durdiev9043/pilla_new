@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Farm;
+use App\Models\FarmStaff;
 use App\Models\Hudud;
 use App\Models\klaster;
 use App\Models\Staff;
@@ -40,7 +41,7 @@ class RegionController extends Controller
 //        return view('admin.region.index',['regions'=>$regions,'staffes'=>$staffes]);
         $hududs=Hudud::all()->where('region_id','=',$id);
         $staffes=Staff::all();
-        $farmes=Farm::all();
+        $farmes=FarmStaff::all();
         return view('admin.hudud.index',['hududs'=>$hududs,'farmes'=>$farmes,'staffes'=>$staffes]);
     }
 

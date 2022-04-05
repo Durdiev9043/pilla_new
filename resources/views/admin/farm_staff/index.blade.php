@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-7"><h1 class="card-title">Касаначилар рўйхати</h1></div>
+                    <div class="col-7"><h1 class="card-title">"{{$name->village->name}}"даги "{{$name->name}}"нинг kасаначилари рўйхати</h1></div>
                     <div class="col-md-1 mr-5">
                         <a class="btn btn-primary" href="">
                             <span class="btn-label">
@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     <div class="col-md-1 ml-4">
-                        <a class="btn btn-primary" href="{{route('admin.staff.create')}}">
+                        <a class="btn btn-primary" href="{{route('admin.farm_s.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
@@ -25,7 +25,7 @@
                 </div>
                 <hr>
                 <div class="card-body table-responsive">
-                    <table class="table-bordered w-auto table-striped" id="mytable">
+                    <table class="table-bordered w-100 table-striped" id="mytable">
                         <thead>
                         <tr>
                             <th class="text-center" rowspan="2" scope="col">Ф.И.Ш</th>
@@ -36,7 +36,7 @@
 
                             <th class="text-center" rowspan="2" scope="col">ШЖБПТ</th>
 
-                            <th class="text-center"  colspan="2" scope="col">Бириктирилган тутзор</th>
+                            <th class="text-center"  rowspan="2" scope="col">тутзор</th>
 
                             <th class="text-center" rowspan="2" scope="col">Шартнома<br>қути</th>
 
@@ -44,30 +44,9 @@
 
                             <th class="text-center"  rowspan="2" scope="col">Етиштирган<br>маҳсулот<br> қиймати,<br> (минг сўм)</th>
 
-                            <th class="text-center"  colspan="2" scope="col">Йил бошига қолдиқ, минг сўм</th>
-
-                            <th class="text-center"  rowspan="2" scope="col">Аванс,<br>(минг сўм)</th>
-
-                            <th class="text-center"  rowspan="2" scope="col">Моддий<br>техник<br>ресурс,<br>(минг сўм)</th>
-
-                            <th class="text-center"  rowspan="2" scope="col">Жойида<br>ҳисоб китоб<br>(минг сўм)</th>
-
-                            <th class="text-center"  rowspan="2" scope="col">Субъсидия<br>(минг сўм)</th>
-
-                            <th class="text-center"  colspan="2" scope="col">Якуний ҳисоб-китоб<br>(минг сўм)</th>
-
-                            <th class="text-center"  rowspan="2" scope="col">Изоҳ</th>
-
-
-
                             <th class="text-center" rowspan="2" scope="col">Действие</th>
                         </tr>
                         <tr>
-
-                            <th class="text-center" scope="col">контур</th>
-
-                            <th class="text-center" scope="col">га</th>
-
                             <th class="text-center" scope="col">режа</th>
 
                             <th class="text-center" scope="col">ҳақиқатда<br> топширди</th>
@@ -75,16 +54,6 @@
                             <th class="text-center" scope="col">фарқи <br>(+/-)</th>
 
                             <th class="text-center" scope="col">фоиз<br>%</th>
-
-                            <th class="text-center" scope="col">дебет</th>
-
-                            <th class="text-center" scope="col">кредит</th>
-
-                            <th class="text-center" scope="col">дебет</th>
-
-                            <th class="text-center" scope="col">кредит</th>
-
-
 
 
                         </tr>
@@ -101,9 +70,7 @@
 
                                     <td>{{$staff->jshir}}</td>
 
-                                    <td>{{$staff->kontur}}</td>
-
-                                    <td>{{$staff->maydon}}</td>
+                                    <td>{{$staff->yakka_tut}}</td>
 
                                     <td>{{$staff->algan_qutisi}}</td>
 
@@ -114,7 +81,9 @@
                                     <td>
                                         <?php
                                         $farqi=($staff->topshirgani-$staff->topshirish_rejasi);
-                                        $foiz=($staff->topshirgani)*100/$staff->topshirish_rejasi;
+                                        if ($staff->topshirish_rejasi>0){
+                                        $foiz=($staff->topshirgani)*100/$staff->topshirish_rejasi;}
+                                        else{$foiz=0;}
                                         ?>
                                         {{$farqi}}
                                     </td>
@@ -124,44 +93,16 @@
                                     </td>
 
                                     <td>
-                                        {{$staff->toladi}}
+                                        {{$staff->topshirish_rejasi*24}}
                                     </td>
 
-                                    <td>
-                                        debet
-                                    </td>
 
                                     <td>
-                                        kridit
-                                    </td>
-                                    <td>
-                                        avans
-                                    </td>
-                                    <td>
-                                        resurs
-                                    </td>
-                                    <td>
-                                        joyida
-                                    </td>
-                                    <td>
-                                        subsedya
-                                    </td>
-                                    <td>
-                                        debet
-                                    </td>
 
-                                    <td>
-                                        kridit
-                                    </td>
-                                    <td>
-                                        izox
-                                    </td>
-                                    <td>
-
-                                        <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
+                                        <form action="{{ route('admin.farm_s.destroy',$staff->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-warning btn-sm m-1" href="{{ route('admin.staff.edit',$staff->id) }}">
+                                            <a class="btn btn-warning btn-sm m-1" href="{{ route('admin.farm_s.edit',$staff->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
@@ -189,16 +130,7 @@
                         <th>-</th>
                         <th>-</th>
                         <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
+
                         </tfoot>
                     </table>
                 </div>

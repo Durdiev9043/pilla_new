@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hudud;
 use App\Models\Region;
 use App\Models\Staff;
 use App\Models\Village;
@@ -19,7 +20,8 @@ class StaffController extends Controller
     {
 
         $regions=Region::all();
-        return view('admin.staff.create',['regions'=>$regions]);
+        $villages=Hudud::all();
+        return view('admin.staff.create',['regions'=>$regions,'villages'=>$villages]);
     }
 
     public function store(Request $request)

@@ -21,7 +21,7 @@
                     @endif
 
 
-                    <form action="{{route('admin.staff.update',$staff->id)}}" method="POST" accept-charset="UTF-8"
+                    <form action="{{route('admin.farm_s.update',$staff->id)}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="number">махалла</label>
-                            <select class="custom-select" id="price_id" name="village_id">
+                            <select class="custom-select" id="village_id" name="village_id">
 
                                     <option value="{{$staff->village->id}}">{{$staff->village->name}}</option>
 
@@ -78,13 +78,10 @@
                             <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">га</label>
-                            <input type="text" name="maydon" value="{{$staff->maydon}}" class="form-control" id="header_ru" placeholder="га">
+                            <label for="header_ru">якка тутзор қатори</label>
+                            <input type="text" name="yakka_tut" value="{{$staff->yakka_tut}}" class="form-control" id="header_ru" placeholder="га">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">контур</label>
-                            <input type="text" name="kontur" value="{{$staff->kontur}}" class="form-control" id="header_ru" placeholder="контур">
-                        </div>
+
 
 
 

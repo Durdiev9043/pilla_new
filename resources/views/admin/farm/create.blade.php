@@ -109,35 +109,6 @@
                                     <label for="header_ru">ekin maydoni</label>
                                     <input type="text" name="maydon"  class="form-control" id="header_ru" placeholder="номи">
                                 </div>
-                                <div class="form-group">
-                                    <label for="header_ru">yakka tutzor</label>
-                                    <input type="text" name="tut"  class="form-control" id="header_ru" placeholder="номи">
-                                </div>
-
-
-
-                                <div class="form-group">
-                            <label for="header_ru">кути</label>
-                            <input type="text" name="algan_qutisi" placeholder="кути" class="form-control" id="header_ru">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="header_ru">гр</label>
-                            <input type="text" placeholder="гр" name="olgan_gr" class="form-control" id="header_ru">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="header_ru">Шарт</label>
-                            <input type="text" name="topshirish_rejasi" class="form-control" id="header_ru" placeholder="Шарт">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">ҳақиқатда топширди</label>
-                            <input type="text" name="topshirgani" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
-                        </div>
-
-
-
-
 
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
