@@ -43,7 +43,7 @@
                             <input type="text" name="name" class="form-control" id="header_ru" placeholder="номи">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">номи</label>
+                            <label for="header_ru">sektor</label>
                             <input type="text" name="sektor" class="form-control" id="header_ru" placeholder="номи">
                         </div>
 

@@ -21,7 +21,7 @@
                     <table width="100%" id="mytable" class="table-striped table-bordered overflow-auto">
                         <thead>
                         <tr rowspan="2">
-                            <th rowspan="2" >Туманлар номи</th>
+                            <th rowspan="2" >Ҳудуд номи</th>
                             <th rowspan="2" class="text-center" >ҳудуддаги<br> касаначилар<br>сони</th>
 
                             <th  colspan="4" class="text-center">Касаначилар</th>
@@ -133,11 +133,11 @@
 
 
                                 <td>
-                                    <form action="{{ route('admin.region.destroy',$region ->id) }}" method="POST">
+                                    <form action="{{ route('admin.hudud.destroy',$region ->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <div class="btn-group" role="group">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.region.edit',$region->id) }}">
+                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.hudud.edit',$region->id) }}">
                                             <span class="btn-label">
                                                 <i class="fa fa-pen"></i>
                                             </span>

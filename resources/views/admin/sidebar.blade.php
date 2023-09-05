@@ -23,9 +23,18 @@
                         <p>Кластер</p>
                     </a>
                 </li>
+                    <li class=" " style="display: inline;position: absolute;bottom: 0;color: #8d9498;text-align: center;margin-left: 28px">
+                    <a href="/" style="display: inline;text-align: center;color:#8d9498;text-align: center;">
+                        <p> E-PILLA.UZ електрон ахборот тизими </p>
+{{--                            <br>--}}
+{{--                        <p>"Raqamli Iqtisodiyotni rivojlantirish" MCHJ tomonidan ishlab chiqilgan</p>--}}
+{{--                            <br>--}}
+{{--                        <p>Barcha huquqlar himoyalangan</p>--}}
+                    </a>
+                </li>
                 @else
                     <li class="nav-item ">
-                        <a href="{{route('admin.region.show',\Illuminate\Support\Facades\Auth::user()->role)}}">
+                        <a href="">
                             <i class="fas fa-user"></i>
                             <p>Бош сахифа</p>
                         </a>
@@ -36,6 +45,7 @@
 
 
         </div>
+
     </div>
 </div>
 
