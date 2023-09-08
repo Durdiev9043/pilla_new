@@ -31,9 +31,9 @@ class HududController extends Controller
 
     public function show($id)
     {
-        $villages=Village::all()->where('hudud_id','=',$id);
-        $staffes=Staff::all();
-        return view('admin.village.index',['villages'=>$villages,'staffes'=>$staffes]);
+        $staffes=Staff::all()->where('hudud_id','=',$id);
+//        $staffes=Staff::all();
+        return view('admin.staff.index',['staffes'=>$staffes,'id'=>$id]);
     }
 
     public function edit($id)

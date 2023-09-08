@@ -8,8 +8,42 @@ use Illuminate\Notifications\Notifiable;
 
 class Staff extends Model
 {
+    protected $fillable=[
+        'fullname',
+        'village_id',
+        'region_id',
+        'passport',
+        'phone',
+        'inn',
+        'jshir',
+        'kontur',
+        'maydon',
+        'hudud_id',
+
+//        'toladi',
+//        'ekin_turi',
+//        'algan_qutisi',
+//        'olgan_gr',
+//        'topshirish_rejasi',
+//        'topshirgani',
+//        'yil_boshiga',
+//        'bugdoy',
+//        'beda',
+//        'sabzovod',
+//        'poliz',
+//        'kungaboqar',
+//        'kartoshka',
+//        'piyoz',
+//        'sarimsoq_piyoz',
+//        'ozuqa',
+//        'sholi',
+//        'ozuqa',
+//        'izoh',
+//        'avans',
+//        'resurs',
+//        'subsedya'
+    ];
     use Notifiable;
-    protected $fillable=['fullname','region_id','village_id','kontur','jshir','yil_boshiga','ekin_turi','bugdoy','beda','sabzovod','poliz','kungaboqar','kartoshka','piyoz','sarimsoq_piyoz','ozuqa','sholi','ozuqa','maydon','toladi','passport','inn','algan_qutisi','olgan_gr','topshirish_rejasi','izoh','topshirgani','avans','resurs','subsedya'];
 
     public function village(){
         return $this->belongsTo(Village::class);

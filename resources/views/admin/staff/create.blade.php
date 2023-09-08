@@ -40,12 +40,7 @@
                                 <option value=""></option>
                             </select>
                         </div>
-                            <div class="form-group">
-                                <label for="number">махалла</label>
-                                <select class="custom-select" id="village_id"   name="village_id">
-                                    <option value=""></option>
-                                </select>
-                            </div>
+
                         @else
                             <div class="form-group">
                             <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
@@ -79,26 +74,18 @@
                             <input type="text" name="inn" class="form-control" id="header_ru" placeholder="ИНН">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">кути</label>
-                            <input type="text" name="algan_qutisi" placeholder="кути" class="form-control" id="header_ru">
+                            <label for="header_ru">Телефон:</label>
+                            <input type="text" name="phone" class="form-control" id="header_ru" placeholder="Телефон:">
                         </div>
+
                         <div class="form-group">
                             <label for="header_ru">ШЖБПТ</label>
                             <input type="text" name="jshir" placeholder="ШЖБПТ" class="form-control" id="header_ru">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">гр</label>
-                            <input type="text" placeholder="гр" name="olgan_gr" class="form-control" id="header_ru">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="header_ru">Шарт</label>
-                            <input type="text" name="topshirish_rejasi" class="form-control" id="header_ru" placeholder="Шарт">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">ҳақиқатда топширди</label>
-                            <input type="text" name="topshirgani" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
-                        </div>
+
+
+
                         <div class="form-group">
                             <label for="header_ru">га</label>
                             <input type="text" name="maydon" class="form-control" id="header_ru">
@@ -110,26 +97,11 @@
 
 
 
-                        <div class="form-group">
-                            <label for="header_ru">toladi</label>
-                            <input type="text" name="toladi" class="form-control" id="header_ru" >
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">resurs</label>
-                            <input type="text" name="resurs" class="form-control" id="header_ru" >
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">avans</label>
-                            <input type="text" name="avans" class="form-control" id="header_ru">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">subsedya</label>
-                            <input type="text" name="subsedya" class="form-control" id="header_ru" >
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">yil_boshiga</label>
-                            <input type="text" name="yil_boshiga" class="form-control" id="header_ru" >
-                        </div>
+
+
+
+
+
 
 
 

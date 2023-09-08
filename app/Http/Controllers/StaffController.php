@@ -27,7 +27,7 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         Staff::create($request->all());
-        return redirect()->route('admin.village.show',$request->village_id);
+        return redirect()->route('admin.hudud.show',$request->hudud_id);
     }
 
     public function show($id)
