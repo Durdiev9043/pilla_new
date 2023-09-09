@@ -126,45 +126,48 @@
                                     </td>
 
                                     <td>
-                                        {{$staff->topshirish_rejasini*24}}
+                                        {{$staff->topshirish_rejasi*24}}
                                     </td>
-                                    @if($staff->yil_boshiga>=0)
+{{--                                    @if($staff->yil_boshiga>=0)--}}
                                     <td>
-                                        {{$staff->yil_boshiga}}
-                                    </td><td></td>
-                                    @else
+{{--                                        {{$staff->yil_boshiga}}--}}
+                                    </td>
+                                        <td>
+
+                                        </td>
+{{--                                    @else--}}
                                     <td></td>
                                     <td>
-                                        {{$staff->yil_boshiga}}
+{{--                                        {{$staff->yil_boshiga}}--}}
                                     </td>
-                                    @endif
+{{--                                    @endif--}}
                                     <td>
                                         {{$staff->avans}}
                                     </td>
                                     <td>
-                                        {{$staff->resurs}}
+{{--                                        {{$staff->resurs}}--}}
                                     </td>
                                     <td>
-                                        {{$staff->toladi}}
+{{--                                        {{$staff->toladi}}--}}
                                     </td>
                                     <td>
-                                        {{$staff->subsedya}}
+{{--                                        {{$staff->subsedya}}--}}
                                     </td>
-                                    <?php
-                                    $xx=$staff->toladi+$staff->avans+$staff->subsedya+$staff->resurs+$staff->yil_boshiga;
-                                    ?>
-                                    @if($xx>0)
+<!--                                    --><?php
+//                                    $xx=$staff->toladi+$staff->avans+$staff->subsedya+$staff->resurs+$staff->yil_boshiga;
+//                                    ?>
+{{--                                    @if($xx>0)--}}
                                     <td>
-                                        {{$xx}}
+{{--                                        {{$xx}}--}}
                                     </td>
                                     <td>
                                     </td>
-                                    @else
-                                        <td></td>
-                                        <td>{{$xx}}</td>
-                                    @endif
+{{--                                    @else--}}
+{{--                                        <td></td>--}}
+{{--                                        <td>{{$xx}}</td>--}}
+{{--                                    @endif--}}
                                         <td>
-                                        {{$staff->izoh}}
+{{--                                        {{$staff->izoh}}--}}
                                     </td>
                                     <td>
 

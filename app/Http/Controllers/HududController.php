@@ -7,6 +7,7 @@ use App\Models\Region;
 use App\Models\Staff;
 use App\Models\Village;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HududController extends Controller
 {
@@ -31,8 +32,13 @@ class HududController extends Controller
 
     public function show($id)
     {
-        $staffes=Staff::all()->where('hudud_id','=',$id);
+        $staffes = DB::table('staff')
+            ->select('*')
+            ->join('staff_resurs', 'staff.id', '=', 'staff_resurs.staff_id')
+            ->get();
+//        $staffes=Staff::all()->where('hudud_id','=',$id);
 //        $staffes=Staff::all();
+
         return view('admin.staff.index',['staffes'=>$staffes,'id'=>$id]);
     }
 
