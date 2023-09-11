@@ -25,7 +25,7 @@
                 </div>
                 <hr>
                 <div class="card-body table-responsive" >
-                    <table class="table-bordered w-auto table-striped" id="mytable">
+                    <table class="table-bordered w-100 table-striped" id="mytable">
                         <thead>
                         <tr>
                             <th class="text-center" rowspan="2" scope="col">Ф.И.Ш</th>
@@ -44,19 +44,19 @@
 
                             <th class="text-center"  rowspan="2" scope="col">Етиштирган<br>маҳсулот<br> қиймати,<br> (минг сўм)</th>
 
-                            <th class="text-center"  colspan="2" scope="col">Йил бошига қолдиқ, минг сўм</th>
+{{--                            <th class="text-center"  colspan="2" scope="col">Йил бошига қолдиқ, минг сўм</th>--}}
 
-                            <th class="text-center"  rowspan="2" scope="col">Аванс,<br>(минг сўм)</th>
+{{--                            <th class="text-center"  rowspan="2" scope="col">Аванс,<br>(минг сўм)</th>--}}
 
-                            <th class="text-center"  rowspan="2" scope="col">Моддий<br>техник<br>ресурс,<br>(минг сўм)</th>
+{{--                            <th class="text-center"  rowspan="2" scope="col">Моддий<br>техник<br>ресурс,<br>(минг сўм)</th>--}}
 
-                            <th class="text-center"  rowspan="2" scope="col">Жойида<br>ҳисоб китоб<br>(минг сўм)</th>
+{{--                            <th class="text-center"  rowspan="2" scope="col">Жойида<br>ҳисоб китоб<br>(минг сўм)</th>--}}
 
-                            <th class="text-center"  rowspan="2" scope="col">Субъсидия<br>(минг сўм)</th>
+{{--                            <th class="text-center"  rowspan="2" scope="col">Субъсидия<br>(минг сўм)</th>--}}
 
-                            <th class="text-center"  colspan="2" scope="col">Якуний ҳисоб-китоб<br>(минг сўм)</th>
+{{--                            <th class="text-center"  colspan="2" scope="col">Якуний ҳисоб-китоб<br>(минг сўм)</th>--}}
 
-                            <th class="text-center"  rowspan="2" scope="col">Изоҳ</th>
+{{--                            <th class="text-center"  rowspan="2" scope="col">Изоҳ</th>--}}
 
 
 
@@ -76,13 +76,13 @@
 
                             <th class="text-center" scope="col">фоиз<br>%</th>
 
-                            <th class="text-center" scope="col">дебет</th>
+{{--                            <th class="text-center" scope="col">дебет</th>--}}
 
-                            <th class="text-center" scope="col">кредит</th>
+{{--                            <th class="text-center" scope="col">кредит</th>--}}
 
-                            <th class="text-center" scope="col">дебет</th>
+{{--                            <th class="text-center" scope="col">дебет</th>--}}
 
-                            <th class="text-center" scope="col">кредит</th>
+{{--                            <th class="text-center" scope="col">кредит</th>--}}
 
 
 
@@ -128,47 +128,11 @@
                                     <td>
                                         {{$staff->topshirish_rejasi*24}}
                                     </td>
-{{--                                    @if($staff->yil_boshiga>=0)--}}
-                                    <td>
-{{--                                        {{$staff->yil_boshiga}}--}}
-                                    </td>
-                                        <td>
 
-                                        </td>
-{{--                                    @else--}}
-                                    <td></td>
-                                    <td>
-{{--                                        {{$staff->yil_boshiga}}--}}
-                                    </td>
-{{--                                    @endif--}}
-                                    <td>
-                                        {{$staff->avans}}
-                                    </td>
-                                    <td>
-{{--                                        {{$staff->resurs}}--}}
-                                    </td>
-                                    <td>
-{{--                                        {{$staff->toladi}}--}}
-                                    </td>
-                                    <td>
-{{--                                        {{$staff->subsedya}}--}}
-                                    </td>
-<!--                                    --><?php
-//                                    $xx=$staff->toladi+$staff->avans+$staff->subsedya+$staff->resurs+$staff->yil_boshiga;
-//                                    ?>
-{{--                                    @if($xx>0)--}}
-                                    <td>
-{{--                                        {{$xx}}--}}
-                                    </td>
-                                    <td>
-                                    </td>
-{{--                                    @else--}}
-{{--                                        <td></td>--}}
-{{--                                        <td>{{$xx}}</td>--}}
-{{--                                    @endif--}}
-                                        <td>
-{{--                                        {{$staff->izoh}}--}}
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        {{$staff->avans}}--}}
+{{--                                    </td>--}}
+
                                     <td>
 
                                         <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
@@ -203,15 +167,7 @@
                         <th>-</th>
                         <th>-</th>
                         <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
-                        <th>-</th>
+
                         </tfoot>
                     </table>
                 </div>
