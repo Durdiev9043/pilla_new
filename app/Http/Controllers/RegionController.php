@@ -19,7 +19,10 @@ class RegionController extends Controller
     public function index()
     {
         $regions=Region::all();
-        $staffes=Staff::all();
+        $staffes = DB::table('staff')
+            ->select('*')
+            ->join('staff_resurs', 'staff.id', '=', 'staff_resurs.staff_id')
+            ->get();
         $farmes=Farm::all();
         return view('admin.region.index',['regions'=>$regions,'farmes'=>$farmes,'staffes'=>$staffes]);
     }
@@ -40,7 +43,12 @@ class RegionController extends Controller
 //
 //        return view('admin.region.index',['regions'=>$regions,'staffes'=>$staffes]);
         $hududs=Hudud::all()->where('region_id','=',$id);
-        $staffes=Staff::all();
+        $staffes = DB::table('staff')
+            ->select('*')
+            ->join('staff_resurs', 'staff.id', '=', 'staff_resurs.staff_id')
+            ->where('region_id',$id)
+            ->get();
+
         $farmes=FarmStaff::all();
         return view('admin.hudud.index',['hududs'=>$hududs,'farmes'=>$farmes,'staffes'=>$staffes]);
     }

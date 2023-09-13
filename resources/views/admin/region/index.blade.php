@@ -74,7 +74,7 @@
                                                 $x=($topshirgani *100)/$topshirish_rejasi;
                                                 $farqi=$topshirgani-$topshirish_rejasi;
                                                 $jarima=$farqi*22;
-                                                $toladi=$toladi+($staff->toladi);
+//                                                $toladi=$toladi+($staff->toladi);
                                                 $qoldi=$toladi-$jarima;
                                             };
 
