@@ -1,4 +1,4 @@
-@extends('admin.master')
+{{--@extends('admin.master')--}}
 @section('content')
     <div class="col-md-12">
         <div class="card">
@@ -40,14 +40,7 @@
                                         <option value="{{$staff->hudud->id}}">{{$staff->hudud->name}}</option>
                                     </select>
                                 </div>
-                        <div class="form-group">
-                            <label for="number">махалла</label>
-                            <select class="custom-select" id="price_id" name="village_id">
 
-                                    <option value="{{$staff->village->id}}">{{$staff->village->name}}</option>
-
-                            </select>
-                        </div>
                         @else
                             <input type="hidden" name="village_id" value="{{$staff->village->id}}">
                             <input type="hidden" name="hudud_id" value="{{$staff->hudud->id}}">
@@ -68,55 +61,52 @@
                             <label for="header_ru">ШЖБПТ</label>
                             <input type="text" name="jshir" value="{{$staff->jshir}}" class="form-control" id="header_ru" placeholder="работа">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">кути</label>
-                            <input type="text" name="algan_qutisi" value="{{$staff->algan_qutisi}}" class="form-control" id="header_ru">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">гр</label>
-                            <input type="text" name="olgan_gr" value="{{$staff->olgan_gr}}" class="form-control" id="header_ru">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="header_ru">Шарт</label>
-                            <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="Шарт">
-                        </div>
-                        @endif
-                        <div class="form-group">
-                            <label for="header_ru">ҳақиқатда топширди</label>
-                            <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
-                        </div>
-                        @if(\Illuminate\Support\Facades\Auth::user()->ruxsat>0)
-                        <div class="form-group">
-                            <label for="header_ru">га</label>
-                            <input type="text" name="maydon" value="{{$staff->maydon}}" class="form-control" id="header_ru" placeholder="га">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">контур</label>
-                            <input type="text" name="kontur" value="{{$staff->kontur}}" class="form-control" id="header_ru" placeholder="контур">
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">гр</label>--}}
+{{--                            <input type="text" name="olgan_gr" value="{{$staff->olgan_gr}}" class="form-control" id="header_ru">--}}
+{{--                        </div>--}}
 
-                        <div class="form-group">
-                            <label for="header_ru">toladi</label>
-                            <input type="text" name="toladi" value="{{$staff->toladi}}" class="form-control" id="header_ru" placeholder="га">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">resurs</label>
-                            <input type="text" name="resurs" class="form-control" value="{{$staff->resurs}}" id="header_ru" placeholder="га">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">avans</label>
-                            <input type="text" name="avans" class="form-control" value="{{$staff->avans}}" id="header_ru" placeholder="га">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">subsedya</label>
-                            <input type="text" name="subsedya" class="form-control" value="{{$staff->subsedya}}" id="header_ru" placeholder="га">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">yil_boshiga</label>
-                            <input type="text" name="yil_boshiga" class="form-control" value="{{$staff->yil_boshiga}}" id="header_ru" placeholder="га">
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">Шарт</label>--}}
+{{--                            <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="Шарт">--}}
+{{--                        </div>--}}
                         @endif
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">ҳақиқатда топширди</label>--}}
+{{--                            <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">--}}
+{{--                        </div>--}}
+
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">га</label>--}}
+{{--                            <input type="text" name="maydon" value="{{$staff->maydon}}" class="form-control" id="header_ru" placeholder="га">--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">контур</label>--}}
+{{--                            <input type="text" name="kontur" value="{{$staff->kontur}}" class="form-control" id="header_ru" placeholder="контур">--}}
+{{--                        </div>--}}
+
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">toladi</label>--}}
+{{--                            <input type="text" name="toladi" value="{{$staff->toladi}}" class="form-control" id="header_ru" placeholder="га">--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">resurs</label>--}}
+{{--                            <input type="text" name="resurs" class="form-control" value="{{$staff->resurs}}" id="header_ru" placeholder="га">--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">avans</label>--}}
+{{--                            <input type="text" name="avans" class="form-control" value="{{$staff->avans}}" id="header_ru" placeholder="га">--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">subsedya</label>--}}
+{{--                            <input type="text" name="subsedya" class="form-control" value="{{$staff->subsedya}}" id="header_ru" placeholder="га">--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="header_ru">yil_boshiga</label>--}}
+{{--                            <input type="text" name="yil_boshiga" class="form-control" value="{{$staff->yil_boshiga}}" id="header_ru" placeholder="га">--}}
+{{--                        </div>--}}
+
 
 
                         <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>

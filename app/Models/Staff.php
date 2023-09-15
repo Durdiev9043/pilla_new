@@ -48,6 +48,9 @@ class Staff extends Model
     public function village(){
         return $this->belongsTo(Village::class);
     }
+    public function hudud(){
+        return $this->belongsTo(Hudud::class);
+    }
 
     public function region(){
         return $this->belongsTo(Region::class);
