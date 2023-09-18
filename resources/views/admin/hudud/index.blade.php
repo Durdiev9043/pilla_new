@@ -29,7 +29,7 @@
                             <th class="border-bottom text-center" colspan="3"  scope="col">жами</th>
 
 
-                            <th rowspan="2" class="text-center" >Амаллар</th>
+{{--                            <th rowspan="2" class="text-center" >Амаллар</th>--}}
 
                         </tr>
                         <tr>
@@ -132,22 +132,22 @@
 
 
 
-                                <td>
-                                    <form action="{{ route('admin.hudud.destroy',$region ->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <div class="btn-group" role="group">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.hudud.edit',$region->id) }}">
-                                            <span class="btn-label">
-                                                <i class="fa fa-pen"></i>
-                                            </span>
-                                            </a>
-                                            <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">
-                                            <i class="fa fa-trash"></i></span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </td>
+{{--                                <td>--}}
+{{--                                    <form action="{{ route('admin.hudud.destroy',$region ->id) }}" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('DELETE')--}}
+{{--                                        <div class="btn-group" role="group">--}}
+{{--                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.hudud.edit',$region->id) }}">--}}
+{{--                                            <span class="btn-label">--}}
+{{--                                                <i class="fa fa-pen"></i>--}}
+{{--                                            </span>--}}
+{{--                                            </a>--}}
+{{--                                            <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">--}}
+{{--                                            <i class="fa fa-trash"></i></span>--}}
+{{--                                            </button>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </td>--}}
 
                             </tr>
                         @endforeach
@@ -166,7 +166,7 @@
                             <th>-</th>
                             <th>-</th>
                             <th>-</th>
-                            <th>-</th>
+{{--                            <th>-</th>--}}
                         </tr>
                         </tfoot>
                     </table>

@@ -75,7 +75,7 @@
                                                     $olgan=$olgan+($staff->olgan_gr);
                                                     $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
                                                     $topshirgani=$topshirgani+($staff->topshirgani);
-                                                    $x=($topshirgani *100)/$topshirish_rejasi;
+//                                                    $x=($topshirgani *100)/$topshirish_rejasi;
                                                     $farqi=$topshirgani-$topshirish_rejasi;
                                                     $jarima=$farqi*22;
                                                     $toladi=$toladi+($staff->toladi);
